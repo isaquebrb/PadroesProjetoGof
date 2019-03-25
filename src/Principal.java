@@ -13,6 +13,8 @@ public class Principal {
     Processador processaCriptografado = new ProcessaCriptografado(processaCompactado);
     
     GeradorArquivo gerador = new GeradorArquivoPropriedades(processaCriptografado);
+    gerador.AddObservador(new LogService());
+    gerador.AddObservador(new LogBO());
     gerador.gerarArquivo("C:\\Users\\Isaque\\Desktop\\prop1.zip", mapa);
 
   }
