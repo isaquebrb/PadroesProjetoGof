@@ -1,6 +1,24 @@
 import java.io.IOException;
 
-public interface Processador {
+public abstract class Processador {
 
-  public byte[] processaConteudo(byte[] bytes) throws IOException;
+	private Processador proximoProcessador;
+	
+	public Processador(Processador proximoProcessador) {
+		this.proximoProcessador = proximoProcessador;
+	}
+	
+	public Processador() {
+		this.proximoProcessador = new ProcessaDefault(null);
+	}
+	
+  public byte[] processaCadeia(byte[] bytes) throws IOException{
+	  bytes = processaConteudo(bytes);
+	  if(proximoProcessador != null) {
+		  bytes = proximoProcessador.processaCadeia(bytes);
+	  }
+	  return bytes;
+  }
+  
+  protected abstract byte[] processaConteudo(byte[] bytes ) throws IOException;
 }

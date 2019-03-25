@@ -12,7 +12,7 @@ public abstract class GeradorArquivo {
 
   public void gerarArquivo(String nome, Map<String, Object> propriedades) throws IOException {
     String conteudo = gerarConteudo(propriedades);
-    byte[] bytes = processador.processaConteudo(conteudo.getBytes());
+    byte[] bytes = processador.processaCadeia(conteudo.getBytes());
     
     FileOutputStream fileout = new FileOutputStream(nome);
     fileout.write(bytes);

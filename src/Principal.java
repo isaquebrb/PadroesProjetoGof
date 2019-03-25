@@ -9,14 +9,11 @@ public class Principal {
     mapa.put("nome","carlos");
     mapa.put("idade",32);
     
-    GeradorArquivo gerador = new GeradorArquivoPropriedades(new ProcessaCriptografado());
-    gerador.gerarArquivo("C:\\Users\\iribeirb\\Desktop\\Cript.txt", mapa);
+    Processador processaCompactado = new ProcessaCompactado();
+    Processador processaCriptografado = new ProcessaCriptografado(processaCompactado);
     
-    GeradorArquivo gerador1 = new GeradorArquivoXML(new ProcessaCompactado());
-    gerador1.gerarArquivo("C:\\Users\\iribeirb\\Desktop\\XML.zip", mapa);
-    
-    GeradorArquivo gerador2 = new GeradorArquivoPropriedades(new ProcessaDefault());
-    gerador2.gerarArquivo("C:\\Users\\iribeirb\\Desktop\\default.txt", mapa);
+    GeradorArquivo gerador = new GeradorArquivoPropriedades(processaCriptografado);
+    gerador.gerarArquivo("C:\\Users\\Isaque\\Desktop\\prop1.zip", mapa);
 
   }
 }
