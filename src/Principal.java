@@ -17,5 +17,5 @@ public class Principal {
     gerador.AddObservador(new LogBO());
     gerador.gerarArquivo("C:\\Users\\Isaque\\Desktop\\prop1.zip", mapa);
 
-  }
+  } 
 }
